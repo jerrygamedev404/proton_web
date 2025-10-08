@@ -1,0 +1,29 @@
+[
+  {
+    "id": "powertrain",
+    "title_zh": "强劲动力与平顺换挡",
+    "title_en": "Punchy Performance, Smooth Shifts",
+    "desc_zh": "全新 1.5TD 搭配 7 速湿式 DCT，响应更快、效率更高。",
+    "desc_en": "New 1.5TD paired with 7‑speed wet DCT for quicker response and higher efficiency.",
+    "image": "/images/x50/1.jpg",
+    "imageMobile": "/images/x50/1.jpg"
+  },
+  {
+    "id": "adas",
+    "title_zh": "L2 级 ADAS，出行更安心",
+    "title_en": "Level 2 ADAS for Safer Trips",
+    "desc_zh": "ACC with Stop&Go、LKA、360° 环视 + 底盘透明视图等智能安全配置。",
+    "desc_en": "ACC with Stop&Go, LKA, 360° view with transparent chassis and more smart safety features.",
+    "image": "/images/x50/2.jpg",
+    "imageMobile": "/images/x50/2.jpg"
+  },
+  {
+    "id": "smart",
+    "title_zh": "原生 CarPlay/Android Auto",
+    "title_en": "Native CarPlay / Android Auto",
+    "desc_zh": "语音助理支持马来语；在线导航与音乐更顺滑。",
+    "desc_en": "Malay voice assistant; online navigation & music seamlessly integrated.",
+    "image": "/images/x50/3.jpg",
+    "imageMobile": "/images/x50/3.jpg"
+  }
+]

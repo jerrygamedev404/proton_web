@@ -1,0 +1,115 @@
+/* === BEGIN (your original styles) === */
+/* Keep your Tailwind layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #F7FAFD;
+  --text: #0A2540;
+  --muted: #5B6B7C;
+  --acc: #baff85;
+  --acc2: #00ff37;
+  --header-h: 56px;
+}
+
+html, body { height: 100%; }
+body {
+  color: var(--text);
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(99,102,241,0.15), transparent 50%),
+    radial-gradient(800px 200px at -10% 10%, rgba(34,211,238,0.2), transparent 55%),
+    var(--bg);
+  font-feature-settings: 'kern';
+}
+
+/* Cards & Buttons */
+.card { @apply rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow; }
+.btn { @apply inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium; }
+.btn-primary {
+  background-image: linear-gradient(180deg, var(--acc), var(--acc2));
+  color: rgb(0, 0, 0);
+}
+.btn-outline { @apply border border-slate-300 text-slate-700 bg-white; }
+.btn-ghost { @apply text-slate-700; }
+
+/* Animations */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px) } to { opacity: 1; transform: translateY(0) } }
+@keyframes fadeRight { from { opacity: 0; transform: translateX(-12px) } to { opacity: 1; transform: translateX(0) } }
+.reveal-up { animation: fadeUp .35s ease-out both; }
+.reveal-right { animation: fadeRight .35s ease-out both; }
+/* === END (your original styles) === */
+
+
+/* === BEGIN r8e1 additions (merge-safe, mobile & typography fixes) === */
+/* separate :root so we don't edit your original block */
+:root { --header-h: 56px; }
+
+/* System font stack & rendering for CJK + Emoji */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Noto Sans', 'PingFang SC',
+               'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', 'Heiti SC', 'WenQuanYi Micro Hei',
+               'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
+}
+
+/* Kill horizontal scroll on mobile */
+body { overflow-x: hidden; }
+
+/* Optional: force-hide x scroll for tricky containers */
+[data-noscroll-x] { overflow-x: hidden; }
+
+/* Long word safety (e.g., specs) */
+.specs-wrap { word-break: break-word; overflow-wrap: anywhere; }
+
+/* Media containment */
+img, video, canvas, svg { max-width: 100%; height: auto; }
+
+/* iOS safe area padding helper */
+.safe-bottom { padding-bottom: max(env(safe-area-inset-bottom), 12px); }
+/* === END r8e1 additions === */
+
+:root {
+  --canvas: var(--bg);
+  --surface: #FFFFFF;
+  --surface-alt: #F9FBFF;
+  --divider: rgba(15, 23, 42, 0.06);
+}
+
+/* 统一画布（保持你原本的 body 背景不变，只提供可复用 token） */
+.section-stack { padding-block: 8px; }
+
+/* 卡片化区块（仅作用于添加 data-block 的 section，不会影响其它元素） */
+.section-stack > section[data-block] {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.04);
+  margin: 16px auto;
+  padding: 8px 4px;
+}
+@media (min-width: 640px) {
+  .section-stack > section[data-block] { margin: 20px auto; padding: 36px; }
+}
+
+/* 交替淡色底，避免整页纯白造成的疲劳 */
+.section-stack > section[data-block].alt {
+  background: var(--surface-alt);
+}
+
+/* 柔和分隔线（可用于小标题或区块内分组下） */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--divider), transparent);
+}
+
+/* r10b — anchor & layout helpers */
+:root { --header-h: 56px; }
+html { scroll-behavior: smooth; }
+#popular_car, #services, #contact, #featured { scroll-margin-top: calc(var(--header-h)); }
+html { scroll-behavior: smooth; }
+body { overflow-x: hidden; }
+[data-noscroll-x] { overflow-x: hidden; }
+

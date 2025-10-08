@@ -1,0 +1,259 @@
+[
+  {
+    "id": "x50",
+    "name": "Proton X50 (2025)",
+    "segment": "SUV",
+    "priceFrom": 89800,
+    "isNew": true,
+    "isShowTitle": false,
+    "highlights": [
+      "i-GT 1.5L Turbocharged Direct Injection 181 PS / 290 Nm",
+      "7-Speed Dual Clutch Transmission",
+      "Wireless Apple Carplay and Android Auto",
+      "360° HD Camera with 180° Transparent View",
+      "18” Alloy Wheels"
+    ],
+    "heroImage": "/images/x50/hero2.jpeg",
+    "full_heroImage": "/images/x50/full_hero.jpeg",
+    "full_heroImage_mob": "/images/x50/full_hero_mob.jpeg",
+    "gallery": [
+      "/images/x50/hero2.jpeg"
+    ],
+    "variants": [
+      {
+        "code": "exec",
+        "name": "1.5TD Executive",
+        "msrp_price_rm": 89800,
+        "promo_price_rm": 85800,
+        "promo_until": "2025-10-31",
+        "promo_note": "GEMPAK! Deal First 10,000 units or until 2025-10-31",
+        "engine": "1.5TD",
+        "transmission": "7DCT",
+        "output_ps": 181,
+        "torque_nm": 290,
+        "key_features": [
+          "17\" Alloy Wheels",
+          "Lane Departure Warning",
+          "Rear View Camera",
+          "CarPlay/AA"
+        ]
+      },
+      {
+        "code": "prem",
+        "name": "1.5TD Premium",
+        "msrp_price_rm": 101800,
+        "promo_price_rm": 97800,
+        "promo_until": "2025-10-31",
+        "promo_note": "GEMPAK! Deal First 10,000 units or until 2025-10-31",
+        "engine": "1.5TD",
+        "transmission": "7DCT",
+        "output_ps": 181,
+        "torque_nm": 290,
+        "key_features": [
+          "Panoramic Sunroof",
+          "Blind Spot Monitor",
+          "Wireless Charging",
+          "Synthetic Leather Seats"
+        ]
+      },
+      {
+        "code": "flag",
+        "name": "1.5TD Flagship",
+        "msrp_price_rm": 113300,
+        "promo_price_rm": 109300,
+        "promo_until": "2025-10-31",
+        "promo_note": "GEMPAK! Deal First 10,000 units or until 2025-10-31",
+        "engine": "1.5TD",
+        "transmission": "7DCT",
+        "output_ps": 181,
+        "torque_nm": 290,
+        "key_features": [
+          "L2 ADAS Full Suite",
+          "360° Surround View + Underbody View",
+          "Full Speed ACC"
+        ]
+      }
+    ],
+    "specs": {
+      "power": "181 PS",
+      "torque": "290 Nm"
+    },
+    "colors": [
+      "White",
+      "Gray",
+      "Red",
+      "Blue"
+    ],
+    "tags": [
+      "featured"
+    ],
+    "sources": [
+      {
+        "label": "Proton Official",
+        "url": "https://www.proton.com"
+      },
+      {
+        "label": "SoyaCincau",
+        "url": "https://soyacincau.com"
+      },
+      {
+        "label": "Paul Tan",
+        "url": "https://paultan.org"
+      }
+    ],
+    "updated_at": "2025-08-17",
+    "price_note_url": "/legal/price-note"
+  },
+  {
+    "id": "x70",
+    "name": "Proton X70 (2025)",
+    "segment": "SUV",
+    "priceFrom": 98800,
+    "isShowTitle": false,
+    "highlights": [
+      "1.5 TGDi + 7DCT",
+      "CarPlay / Android Auto (OTA)",
+      "L2 ADAS (High Spec)"
+    ],
+    "heroImage": "/images/x70/hero2.jpeg",
+    "full_heroImage": "/images/x70/full_hero.jpeg",
+    "full_heroImage_mob": "/images/x70/full_hero_mob.jpeg",
+    "gallery": [
+      "/images/x70/hero2.jpeg"
+    ],
+    "variants": [
+      {
+        "name": "1.5 TGDi Standard",
+        "msrp_price_rm": 98800
+      },
+      {
+        "name": "1.5 TGDi Executive",
+        "msrp_price_rm": 110800
+      },
+      {
+        "name": "1.5 TGDi Premium",
+        "msrp_price_rm": 123800
+      },
+      {
+        "name": "1.5 TGDi Premium X",
+        "msrp_price_rm": 126800
+      }
+    ],
+    "tags": [
+      "popular"
+    ],
+    "sources": [
+      {
+        "label": "Proton Official",
+        "url": "https://www.proton.com"
+      },
+      {
+        "label": "Paul Tan",
+        "url": "https://paultan.org"
+      }
+    ],
+    "updated_at": "2025-08-17",
+    "price_note_url": "/legal/price-note"
+  },
+  {
+    "id": "x90",
+    "name": "Proton X90 (BSG)",
+    "segment": "SUV",
+    "priceFrom": 123800,
+    "isShowTitle": false,
+    "highlights": [
+      "1.5 TGDi + 48V BSG · 7DCT",
+      "6/7 Seat Layout",
+      "Advanced Active Safety & Connectivity"
+    ],
+    "heroImage": "/images/x90/hero2.jpeg",
+    "full_heroImage": "/images/x90/full_hero.jpeg",
+    "full_heroImage_mob": "/images/x90/full_hero_mob.jpeg",
+    "gallery": [
+      "/images/x90/hero2.jpeg"
+    ],
+    "variants": [
+      {
+        "name": "1.5 TGDi BSG Standard",
+        "msrp_price_rm": 123800
+      },
+      {
+        "name": "1.5 TGDi BSG Executive",
+        "msrp_price_rm": 130800
+      },
+      {
+        "name": "1.5 TGDi BSG Premium",
+        "msrp_price_rm": 144800
+      },
+      {
+        "name": "1.5 TGDi BSG Flagship",
+        "msrp_price_rm": 152800
+      }
+    ],
+    "sources": [
+      {
+        "label": "Proton 官方",
+        "url": "https://www.proton.com"
+      },
+      {
+        "label": "CarBase",
+        "url": "https://www.carbase.my"
+      }
+    ],
+    "updated_at": "2025-08-17",
+    "price_note_url": "/legal/price-note",
+    "tags": [
+      "featured"
+    ]
+  },
+  {
+    "id": "s70",
+    "name": "Proton S70",
+    "segment": "Sedan",
+    "priceFrom": 73800,
+    "highlights": [
+      "1.5T 150 PS / 226 Nm + 7DCT",
+      "L2 ADAS (High Spec)",
+      "Remote Start & Connected Car"
+    ],
+    "heroImage": "/images/s70/hero2.jpeg",
+    "full_heroImage": "/images/s70/full_hero.jpeg",
+    "full_heroImage_mob": "/images/s70/full_hero_mob.jpeg",
+    "gallery": [
+      "/images/s70/hero2.jpeg"
+    ],
+    "variants": [
+      {
+        "name": "Executive",
+        "msrp_price_rm": 73800
+      },
+      {
+        "name": "Premium",
+        "msrp_price_rm": 79800
+      },
+      {
+        "name": "Flagship",
+        "msrp_price_rm": 89800
+      },
+      {
+        "name": "Flagship X",
+        "msrp_price_rm": 94800
+      }
+    ],
+    "sources": [
+      {
+        "label": "Proton Official",
+        "url": "https://www.proton.com"
+      },
+      {
+        "label": "Paul Tan",
+        "url": "https://paultan.org"
+      }
+    ],
+    "updated_at": "2025-08-17",
+    "price_note_url": "/legal/price-note",
+    "tags": [
+      "featured"
+    ]
+  }
+]

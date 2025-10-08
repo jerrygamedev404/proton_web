@@ -1,0 +1,61 @@
+{
+  "Nav": {
+    "x50": "X50",
+    "models": "车型",
+    "contact": "联系",
+    "testDrive": "预约试驾",
+    "lang": "语言"
+  },
+  "Home": {
+    "x50Highlights": "X50 亮点",
+    "otherModels": "其它热门车型",
+    "seeAll": "查看全部车型"
+  },
+  "Detail": {
+    "highlights": "亮点",
+    "variants": "版本与售价",
+    "specs": "规格",
+    "features": "配置",
+    "colors": "颜色",
+    "gallery": "图库",
+    "faq": "FAQ",
+    "priceFrom": "起步价",
+    "priceNote": "价格说明",
+    "consultWA": "WhatsApp 咨询",
+    "call": "电话联系",
+    "notFound": "未找到车型",
+    "compare": "对比"
+  },
+  "Models": {
+    "title": "在售车型",
+    "search": "搜索车型名",
+    "allSegments": "所有类别",
+    "maxPrice": "最高价"
+  },
+  "Contact": {
+    "title": "联系我们",
+    "store": "门店",
+    "openInMap": "在地图中打开",
+    "phone": "电话",
+    "wa": "WhatsApp",
+    "ig": "Instagram",
+    "quickForm": "快速预约（打开 WhatsApp）",
+    "name": "姓名",
+    "mobile": "联系电话",
+    "model": "意向车型",
+    "note": "备注（可选）",
+    "sendWA": "打开 WhatsApp 发送",
+    "privacy": "提交即通过 WhatsApp 与我们联系；不保存表单数据。"
+  },
+  "Hero": {
+    "whatsapp": "WhatsApp 预约",
+    "details": "查看车型详情"
+  },
+  "Legal": {
+    "priceNoteTitle": "价格说明",
+    "priceNoteBody": "本网站标注价格除特别说明外均指半岛马来西亚 OTR（不含保险）参考价。不同地区与保险/配件可能导致实际落地价不同。"
+  },
+  "Badge": {
+    "promo": "促销中"
+  }
+}

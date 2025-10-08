@@ -1,0 +1,17 @@
+[
+  {
+    "id": "x50",
+    "title_zh": "全新 Proton X50（2025）",
+    "subtitle_zh": "1.5TD 181 PS · 7DCT · 360°+底盘透明视图",
+    "title_en": "New Proton X50 (2025)",
+    "subtitle_en": "1.5TD 181 PS · 7DCT · 360° + Transparent Chassis",
+    "image": "/images/x50/hero.jpg",
+    "imageMobile": "/images/x50/hero-mobile.jpeg",
+    "detailsHref": "/models/x50",
+    "showWhatsapp": true,
+    "showDetails": true,
+    "waText_en": "I'd like to book a Proton X50 test drive",
+    "waText_zh": "我想预约试驾 Proton X50",
+    "waPhone": "60179861511"
+  }
+]

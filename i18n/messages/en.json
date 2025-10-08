@@ -1,0 +1,61 @@
+{
+  "Nav": {
+    "x50": "X50",
+    "models": "Models",
+    "contact": "Contact",
+    "testDrive": "Book Test Drive",
+    "lang": "Language"
+  },
+  "Home": {
+    "x50Highlights": "X50 Highlights",
+    "otherModels": "Other Popular Models",
+    "seeAll": "See all models"
+  },
+  "Detail": {
+    "highlights": "Highlights",
+    "variants": "Variants & Price",
+    "specs": "Specs",
+    "features": "Features",
+    "colors": "Colors",
+    "gallery": "Gallery",
+    "faq": "FAQ",
+    "priceFrom": "From",
+    "priceNote": "Price note",
+    "consultWA": "WhatsApp Enquiry",
+    "call": "Call",
+    "notFound": "Model not found",
+    "compare": "Compare"
+  },
+  "Models": {
+    "title": "Models on Sale",
+    "search": "Search model name",
+    "allSegments": "All segments",
+    "maxPrice": "Max price"
+  },
+  "Contact": {
+    "title": "Contact Us",
+    "store": "Store",
+    "openInMap": "Open in Maps",
+    "phone": "Phone",
+    "wa": "WhatsApp",
+    "ig": "Instagram",
+    "quickForm": "Quick Enquiry (opens WhatsApp)",
+    "name": "Name",
+    "mobile": "Mobile",
+    "model": "Model",
+    "note": "Note (optional)",
+    "sendWA": "Send via WhatsApp",
+    "privacy": "We do not store this form data."
+  },
+  "Hero": {
+    "whatsapp": "Book via WhatsApp",
+    "details": "View Details"
+  },
+  "Legal": {
+    "priceNoteTitle": "Price Note",
+    "priceNoteBody": "Prices shown are Peninsular Malaysia OTR (excl. insurance) unless stated. Actual OTR varies by region/insurance/accessories."
+  },
+  "Badge": {
+    "promo": "Promo"
+  }
+}

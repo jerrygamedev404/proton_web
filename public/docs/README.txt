@@ -1,0 +1,1 @@
+Place local brochures here, e.g. x50.pdf, x70.pdf, x90.pdf. The carousel links to /docs/<id>.pdf if brochureUrl is missing.
