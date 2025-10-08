@@ -6,9 +6,9 @@ frontend:
         - npm ci
     build:
       commands:
-        - npm run build:static   # 我们已在 next.config.js 写了 output: 'export'
+        - npm run build:static     # 实际就是 next build
   artifacts:
-    baseDirectory: out          # ★ 重点：产物目录是 out
+    baseDirectory: .next           # ★ Next 14+ 静态：Amplify 要求用 .next
     files:
       - '**/*'
   cache:
