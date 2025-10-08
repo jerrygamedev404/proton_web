@@ -1,0 +1,16 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - npm run build:static   # 我们已在 next.config.js 写了 output: 'export'
+  artifacts:
+    baseDirectory: out          # ★ 重点：产物目录是 out
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
