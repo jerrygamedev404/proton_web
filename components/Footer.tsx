@@ -17,7 +17,7 @@ export default function Footer() {
         {/* Legal / Disclaimer */}
         <div className="text-neutral-500">
           <div className="font-semibold mb-2">Notice</div>
-          <p className="mb-2">图片仅供示意，价格以官方/门店最终为准。Prices may vary by region, insurance and accessories.</p>
+          <p className="mb-2">Prices may vary by region, insurance and accessories.</p>
           <p>© {year} Proton Dealer.</p>
         </div>
       </div>

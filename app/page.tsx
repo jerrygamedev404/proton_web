@@ -30,7 +30,7 @@ export default function HomePage() {
       {/* Popular models showcase (no redirect) */}
       <PopularModels
         id="popular_car"
-        title="热门车型"
+        title="Featured Vehicles"
         models={popular}             // 你已有的 popular 数组
         detailAnchorId="#featured"
         detailHref="/#featured"

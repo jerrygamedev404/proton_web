@@ -40,11 +40,6 @@ body {
 .reveal-right { animation: fadeRight .35s ease-out both; }
 /* === END (your original styles) === */
 
-
-/* === BEGIN r8e1 additions (merge-safe, mobile & typography fixes) === */
-/* separate :root so we don't edit your original block */
-:root { --header-h: 56px; }
-
 /* System font stack & rendering for CJK + Emoji */
 html {
   -webkit-text-size-adjust: 100%;

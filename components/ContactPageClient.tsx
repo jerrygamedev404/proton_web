@@ -1,12 +1,33 @@
 'use client';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useSiteConfig } from '@/lib/site-client';
+
+const MODELS = ['X50','X70','X90','S70'] as const;
+type ModelId = typeof MODELS[number];
+
+// Helper: normalize incoming text like "Proton X70" -> "X70"
+function normalizeModel(q: string | null): ModelId | null {
+  if (!q) return null;
+  let s = q.trim();
+  s = s.replace(/^proton\s+/i, ''); // drop leading "Proton "
+  // keep original case for e.MAS 7 matching
+  const found = MODELS.find(m => m.toLowerCase() === s.toLowerCase());
+  return found ?? null;
+}
+
 
 export default function ContactPageClient() {
   const cfg = useSiteConfig();
   const sp = useSearchParams();
   const modelFromUrl = sp.get('model') || 'X50';
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const usp = new URLSearchParams(window.location.search);
+    const m = normalizeModel(usp.get('model'));
+    if (m) setModel(m);
+  }, []);
 
   const [name, setName]   = useState('');
   const [phone, setPhone] = useState('');
@@ -43,12 +64,8 @@ export default function ContactPageClient() {
         <div className="grid gap-3 sm:grid-cols-2">
           <input className="border rounded-xl px-3 py-2" placeholder="Name" value={name} onChange={e=>setName(e.target.value)} />
           <input className="border rounded-xl px-3 py-2" placeholder="Contact" value={phone} onChange={e=>setPhone(e.target.value)} />
-          <select className="border rounded-xl px-3 py-2" value={model} onChange={e=>setModel(e.target.value)}>
-            <option value="X50">Proton X50</option>
-            <option value="X70">Proton X70</option>
-            <option value="X90">Proton X90</option>
-            <option value="S70">Proton S70</option>
-            <option value="Others">Others</option>
+          <select className="border rounded-xl px-3 py-2" value={model} onChange={e=>setModel(e.target.value as ModelId)}>
+            {MODELS.map(m => <option key={m} value={m}>{`Proton ${m}`}</option>)}
           </select>
           <input className="border rounded-xl px-3 py-2" placeholder="Remarks (Optional)" value={note} onChange={e=>setNote(e.target.value)} />
         </div>
