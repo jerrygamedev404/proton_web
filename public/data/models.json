@@ -1,5 +1,51 @@
 [
   {
+    "id": "saga",
+    "name": "Proton Saga",
+    "segment": "Sedan",
+    "priceFrom": 37990,
+    "highlights": [
+      "i-GT 1.5 Engine 150 Nm 120 PS",
+      "16inch Integrated Dual Screen",
+      "Reinforced Safety Structure(RESS)"
+    ],
+    "heroImage": "/images/saga/hero2.jpeg",
+    "full_heroImage": "/images/saga/full_hero.jpeg",
+    "full_heroImage_mob": "/images/saga/full_hero_mob.jpeg",
+    "gallery": [
+      "/images/saga/hero2.jpeg"
+    ],
+    "variants": [
+      {
+        "name": "Standard",
+        "msrp_price_rm": 37990
+      },
+      {
+        "name": "Executive",
+        "msrp_price_rm": 43990
+      },
+      {
+        "name": "Premium",
+        "msrp_price_rm": 48990
+      }
+    ],
+    "sources": [
+      {
+        "label": "Proton Official",
+        "url": "https://www.proton.com"
+      },
+      {
+        "label": "Paul Tan",
+        "url": "https://paultan.org"
+      }
+    ],
+    "updated_at": "2025-12-2",
+    "price_note_url": "/legal/price-note",
+    "tags": [
+      "featured"
+    ]
+  },
+  {
     "id": "x50",
     "name": "Proton X50 (2025)",
     "segment": "SUV",

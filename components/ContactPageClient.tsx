@@ -3,7 +3,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useSiteConfig } from '@/lib/site-client';
 
-const MODELS = ['X50','X70','X90','S70'] as const;
+const MODELS = ['Saga','X50','X70','X90','S70'] as const;
 type ModelId = typeof MODELS[number];
 
 // Helper: normalize incoming text like "Proton X70" -> "X70"
@@ -20,7 +20,7 @@ function normalizeModel(q: string | null): ModelId | null {
 export default function ContactPageClient() {
   const cfg = useSiteConfig();
   const sp = useSearchParams();
-  const modelFromUrl = sp.get('model') || 'X50';
+  const modelFromUrl = sp.get('model') || 'Saga';
 
   useEffect(() => {
     if (typeof window === 'undefined') return;

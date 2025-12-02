@@ -13,7 +13,7 @@ type Props = {
 export default function ContactBlock({ initial, compact = false, showForm = true, className }: Props) {
   const cfg = useSiteConfig(initial);
   const sp = useSearchParams();
-  const preModel = sp.get('model') || 'X50';
+  const preModel = sp.get('model') || 'Saga';
 
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
