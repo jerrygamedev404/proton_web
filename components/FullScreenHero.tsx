@@ -45,7 +45,7 @@ export default function FullScreenHero({
 
       <nav aria-label="Hero actions" className="pointer-events-auto absolute inset-x-0 bottom-10 z-20 flex flex-col items-center gap-3 px-5 py-24">
         <Link
-          href={`/${primaryAnchorId}`}
+          href={`/#${primaryAnchorId}`}
           onClick={anchorClick(primaryAnchorId!)}
           className="btn rounded-full px-7 py-3 text-base md:text-lg font-semibold shadow-lg ring-2 ring-black/15"
           style={{ backgroundImage: 'linear-gradient(180deg, var(--acc), var(--acc2))', color: '#000' }}

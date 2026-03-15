@@ -20,19 +20,17 @@ function normalizeModel(q: string | null): ModelId | null {
 export default function ContactPageClient() {
   const cfg = useSiteConfig();
   const sp = useSearchParams();
-  const modelFromUrl = sp.get('model') || 'Saga';
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const usp = new URLSearchParams(window.location.search);
-    const m = normalizeModel(usp.get('model'));
-    if (m) setModel(m);
-  }, []);
+  const modelFromUrl = normalizeModel(sp.get('model')) ?? 'Saga';
 
   const [name, setName]   = useState('');
   const [phone, setPhone] = useState('');
   const [model, setModel] = useState(modelFromUrl);
   const [note, setNote]   = useState('');
+
+  useEffect(() => {
+    const m = normalizeModel(sp.get('model'));
+    if (m) setModel(m);
+  }, [sp]);
 
   const waText = useMemo(() => (
     `I was interested in Proton ${model} (Date/Time)\nName: ${name}\nContact: ${phone}${note ? `\nRemarks: ${note}` : ''}`

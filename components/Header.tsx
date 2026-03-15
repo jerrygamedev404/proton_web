@@ -20,9 +20,9 @@ export default function Header() {
           <span className="sr-only">PROTON Dealer</span>
         </Link>
         <nav className="hidden sm:flex gap-6 text-sm">
-          <Link href="/#popular_car" onClick={anchorClick('#popular_car')} prefetch={false}>Models</Link>
-          <Link href="/#services" onClick={anchorClick('#services')} prefetch={false}>Services</Link>
-          <Link href="/#footer" onClick={anchorClick('#footer')} prefetch={false}>Contact</Link>
+          <Link href="/#popular_car" onClick={anchorClick('popular_car')} prefetch={false}>Models</Link>
+          <Link href="/#services" onClick={anchorClick('services')} prefetch={false}>Services</Link>
+          <Link href="/#footer" onClick={anchorClick('footer')} prefetch={false}>Contact</Link>
         </nav>
 
         <div className="hidden sm:block">
@@ -38,9 +38,9 @@ export default function Header() {
       {open && (
         <div className="sm:hidden border-t">
           <div className="px-4 py-2 flex flex-col gap-2">
-            <Link href="/#popular_car" onClick={(e) => { anchorClick('#popular_car')(e); setOpen(false); }} prefetch={false}>Models</Link>
-            <Link href="/#services" onClick={(e) => { anchorClick('#services')(e); setOpen(false); }} prefetch={false}>Services</Link>
-            <Link href="/#footer" onClick={(e) => { anchorClick('#footer')(e); setOpen(false); }} prefetch={false}>Contact</Link>
+            <Link href="/#popular_car" onClick={(e) => { anchorClick('popular_car')(e); setOpen(false); }} prefetch={false}>Models</Link>
+            <Link href="/#services" onClick={(e) => { anchorClick('services')(e); setOpen(false); }} prefetch={false}>Services</Link>
+            <Link href="/#footer" onClick={(e) => { anchorClick('footer')(e); setOpen(false); }} prefetch={false}>Contact</Link>
             <Link href="/contact" className="mt-2 inline-flex items-center rounded-xl px-4 py-2 bg-emerald-600 text-white" onClick={() => setOpen(false)} prefetch={false}>Booking</Link>
           </div>
         </div>

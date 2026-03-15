@@ -27,10 +27,8 @@ export function anchorClick(id: string, opts?: ScrollOptions) {
     if (exists) {
       e?.preventDefault?.();
       scrollToId(id, opts);
-      if (location.hash !== `#${id}`) history.replaceState(null, '', `${id}`);
-    } else {
-      console.log("HIHI")
-      // allow default navigation to /#id
+      if (location.hash !== `#${id}`) history.replaceState(null, '', `#${id}`);
     }
+    // allow default navigation to /#id when the target is on another page
   };
 }

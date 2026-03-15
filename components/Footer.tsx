@@ -6,12 +6,12 @@ import ContactBlock from '@/components/ContactBlock';
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer id="#footer" className="border-t mt-4">
+    <footer id="footer" className="border-t mt-4">
       <div className="mx-auto max-w-6xl px-4 py-8 grid gap-6 sm:grid-cols-3 text-sm">
         {/* Contact Us section reused */}
         <div className="sm:col-span-2">
           <div className="font-semibold mb-2">Contact Us</div>
-          <ContactBlock />
+          <ContactBlock compact showForm={false} />
         </div>
 
         {/* Legal / Disclaimer */}

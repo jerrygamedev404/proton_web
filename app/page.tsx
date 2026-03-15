@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { getAllModels, getModelById } from '@/lib/data';
+import { getAllModels } from '@/lib/data';
 import ServicesSection from '@/components/ServicesSection';
 import FullScreenHero from '@/components/FullScreenHero';
 import PopularModels from '@/components/PopularModels';
@@ -8,13 +8,12 @@ const FeaturedCarousel = dynamic(() => import('@/components/FeaturedCarousel'), 
 
 export default function HomePage() {
   const all = getAllModels();
-  const x50 = getModelById('x50') || all[0];
-  const popular = all;//.filter(m => m.id !== x50?.id).slice(0, 6);
+  const popular = all;
 
   return (
     <div>
       {/* Hero */}
-      <section id="#hero" data-block className="relative">
+      <section id="hero" data-block className="relative">
         <FullScreenHero
           desktopImage="/images/hero/home_pc.jpeg"  // ≥768px
           mobileImage="/images/hero/home_m.jpeg"    // <768px
@@ -22,8 +21,8 @@ export default function HomePage() {
           title={""}
           primaryLabel="BROWSE INVENTORY"               // 更突出 → 热门车型
           secondaryLabel="SCHEDULE TEST DRIVE"
-          primaryAnchorId="#popular_car"                     // ← 滚到热门车型
-          secondaryAnchorId="#contact"                   // ← 滚到底部 Contact
+          primaryAnchorId="popular_car"                     // ← 滚到热门车型
+          secondaryAnchorId="footer"                   // ← 滚到底部 Contact
         />
       </section>
 
@@ -32,18 +31,18 @@ export default function HomePage() {
         id="popular_car"
         title="Featured Vehicles"
         models={popular}             // 你已有的 popular 数组
-        detailAnchorId="#featured"
+        detailAnchorId="featured"
         detailHref="/#featured"
       />
 
       {/* Carousel below Hero */}
-      <section id="#featured" data-block className="mx-auto max-w-6xl px-0 py-0">
+      <section id="featured" data-block className="mx-auto max-w-6xl px-0 py-0">
         <FeaturedCarousel intervalMs={6000} pauseAfterInteractionMs={10000}
         />
       </section>
 
       {/* Services on homepage */}
-      <section data-block id="#services" className="border-t scroll-mt-24">
+      <section data-block id="services" className="border-t scroll-mt-24">
         <div className="mx-auto max-w-6xl px-4 py-4">
           <ServicesSection />
         </div>

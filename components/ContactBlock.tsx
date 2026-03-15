@@ -49,7 +49,7 @@ export default function ContactBlock({ initial, compact = false, showForm = true
           <div className="grid gap-3 sm:grid-cols-2">
             <input className="border rounded-xl px-3 py-2" placeholder="Name" value={name} onChange={e=>setName(e.target.value)} />
             <input className="border rounded-xl px-3 py-2" placeholder="Phone No" value={phone} onChange={e=>setPhone(e.target.value)} />
-            <input className="border rounded-xl px-3 py-2 sm:col-span-2" placeholder="Car Model（Example: X50）" value="" onChange={e=>setModel(e.target.value)} />
+            <input className="border rounded-xl px-3 py-2 sm:col-span-2" placeholder="Car Model（Example: X50）" value={model} onChange={e=>setModel(e.target.value)} />
             <input className="border rounded-xl px-3 py-2 sm:col-span-2" placeholder="Remarks (Optional)" value={note} onChange={e=>setNote(e.target.value)} />
           </div>
           {waHref ? (
