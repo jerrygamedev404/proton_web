@@ -6,7 +6,7 @@ import AnchorLink from '@/components/AnchorLink';
 import Section from '@/components/Section';
 import { formatPrice } from '@/lib/utils';
 
-type ModelLite = { id: string; name: string; heroImage?: string; priceFrom?: number; };
+type ModelLite = { id: string; name: string; heroImage?: string; priceFrom?: number; discountPrice?: number; };
 
 export default function PopularModels({
   id = 'popular_car',
@@ -44,24 +44,29 @@ export default function PopularModels({
                 )}
               </div>
             </AnchorLink>
-            <div className="p-4">
-              <div className="flex items-end gap-3">
-                <div className="min-w-0">
-                  <div className="font-medium leading-5 truncate">{m.name}</div>
-                  <div className="text-sm text-neutral-600 leading-5">Price from {formatPrice(m.priceFrom)}</div>
-                </div>
-                <div className="ml-auto flex items-center gap-2 shrink-0">
-                  <AnchorLink href={detailHref} anchorId={detailAnchorId} className="btn btn-outline px-3 py-1.5 text-xs whitespace-nowrap" ariaLabel={`See detail for ${m.name}`}>
-                    Detail
-                  </AnchorLink>
-                  <Link
-                    href={`/contact?model=${m.id}`}
-                    className="btn btn-primary px-4 py-1.5 text-xs whitespace-nowrap rounded-full"
-                    aria-label={`Inquiry about ${m.name}`}
-                  >
-                    Inquiry
-                  </Link>
-                </div>
+            <div className="p-4 flex flex-col gap-3">
+              <div className="min-w-0">
+                <div className="font-medium leading-5 truncate">{m.name}</div>
+                {m.discountPrice != null && m.priceFrom != null && m.discountPrice < m.priceFrom ? (
+                  <div className="flex items-center gap-2 flex-wrap mt-1">
+                    <span className="text-sm text-neutral-400 line-through leading-5">from {formatPrice(m.priceFrom)}</span>
+                    <span className="text-sm text-red-600 font-semibold leading-5">from {formatPrice(m.discountPrice)}</span>
+                  </div>
+                ) : (
+                  <div className="text-sm text-neutral-600 leading-5 mt-1">Price from {formatPrice(m.priceFrom)}</div>
+                )}
+              </div>
+              <div className="flex items-center gap-2 justify-end">
+                <AnchorLink href={detailHref} anchorId={detailAnchorId} className="btn btn-outline px-3 py-1.5 text-xs whitespace-nowrap" ariaLabel={`See detail for ${m.name}`}>
+                  Detail
+                </AnchorLink>
+                <Link
+                  href={`/contact?model=${m.id}`}
+                  className="btn btn-primary px-4 py-1.5 text-xs whitespace-nowrap rounded-full"
+                  aria-label={`Inquiry about ${m.name}`}
+                >
+                  Inquiry
+                </Link>
               </div>
             </div>
           </div>

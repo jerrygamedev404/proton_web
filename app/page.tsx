@@ -8,7 +8,7 @@ const FeaturedCarousel = dynamic(() => import('@/components/FeaturedCarousel'), 
 
 export default function HomePage() {
   const all = getAllModels();
-  const popular = all;
+  const popular = all.filter((model) => model.tags?.includes('featured') || model.tags?.includes('popular'));
 
   return (
     <div>

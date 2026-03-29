@@ -37,6 +37,7 @@ export type Model = {
   name: string;
   segment: "SUV" | "Sedan" | "Hatchback" | "MPV" | "EV" | string;
   priceFrom: number;
+  discountPrice?: number;
   isNew?: boolean;
   year?: number;
   highlights: string[];

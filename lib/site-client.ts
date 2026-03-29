@@ -8,6 +8,8 @@ export type SiteConfig = {
   phones?: string[];
   whatsapp?: string;   // E.164 without '+'
   instagram?: string;
+  facebook?: string;
+  tiktok?: string;
   biz_hours?: string;
   map_url?: string;
 };

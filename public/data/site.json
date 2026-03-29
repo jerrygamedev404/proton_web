@@ -1,11 +1,13 @@
 {
-  "company": "PROTON Dealer KL",
-  "address": "Lot 123, Jalan Damansara, 50490 Kuala Lumpur",
+  "company": "Proton The Apple Bangi",
+  "address": "Lot 2 & 7, Jalan 9/2, Seksyen 9, IKS, Kawasan Perusahaan, 43650 Bandar Baru Bangi, Selangor",
   "phones": [
-    "+60 3-XXXX XXXX"
+    "+60 10-3788768"
   ],
-  "whatsapp": "60179861511",
-  "instagram": "yourbrand",
-  "biz_hours": "Mon\u2013Sun 09:00\u201318:00",
-  "map_url": "https://maps.google.com/?q=Lot%20123%2C%20Jalan%20Damansara%2C%2050490%20Kuala%20Lumpur"
+  "whatsapp": "60103788768",
+  "instagram": null,
+  "facebook": "https://www.facebook.com/hihiproton/",
+  "tiktok": "https://www.tiktok.com/@hiproton.com",
+  "biz_hours": "Mon\u2013Sat 08:30\u201318:00",
+  "map_url": "https://maps.app.goo.gl/vdZVFCbTVSNaPwQAA?g_st=ic"
 }

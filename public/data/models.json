@@ -1,63 +1,16 @@
 [
   {
-    "id": "saga",
-    "name": "Proton Saga",
-    "segment": "Sedan",
-    "priceFrom": 37990,
-    "highlights": [
-      "i-GT 1.5 Engine 150 Nm 120 PS",
-      "16inch Integrated Dual Screen",
-      "Reinforced Safety Structure(RESS)"
-    ],
-    "heroImage": "/images/saga/hero2.jpeg",
-    "full_heroImage": "/images/saga/full_hero.jpeg",
-    "full_heroImage_mob": "/images/saga/full_hero_mob.jpeg",
-    "gallery": [
-      "/images/saga/hero2.jpeg"
-    ],
-    "variants": [
-      {
-        "name": "Standard",
-        "msrp_price_rm": 37990
-      },
-      {
-        "name": "Executive",
-        "msrp_price_rm": 43990
-      },
-      {
-        "name": "Premium",
-        "msrp_price_rm": 48990
-      }
-    ],
-    "sources": [
-      {
-        "label": "Proton Official",
-        "url": "https://www.proton.com"
-      },
-      {
-        "label": "Paul Tan",
-        "url": "https://paultan.org"
-      }
-    ],
-    "updated_at": "2025-12-2",
-    "price_note_url": "/legal/price-note",
-    "tags": [
-      "featured"
-    ]
-  },
-  {
     "id": "x50",
-    "name": "Proton X50 (2025)",
+    "name": "All-New Proton X50",
     "segment": "SUV",
     "priceFrom": 89800,
+    "discountPrice": 89800,
+    "year": 2025,
     "isNew": true,
-    "isShowTitle": false,
     "highlights": [
-      "i-GT 1.5L Turbocharged Direct Injection 181 PS / 290 Nm",
-      "7-Speed Dual Clutch Transmission",
-      "Wireless Apple Carplay and Android Auto",
-      "360° HD Camera with 180° Transparent View",
-      "18” Alloy Wheels"
+      "i-GT 1.5TD engine with 181PS and 290Nm",
+      "14.6-inch infotainment with Wireless Apple CarPlay and Android Auto",
+      "Bahasa Melayu and English voice command with ADAS Level 2"
     ],
     "heroImage": "/images/x50/hero2.jpeg",
     "full_heroImage": "/images/x50/full_hero.jpeg",
@@ -67,99 +20,43 @@
     ],
     "variants": [
       {
-        "code": "exec",
-        "name": "1.5TD Executive",
-        "msrp_price_rm": 89800,
-        "promo_price_rm": 85800,
-        "promo_until": "2025-10-31",
-        "promo_note": "GEMPAK! Deal First 10,000 units or until 2025-10-31",
-        "engine": "1.5TD",
-        "transmission": "7DCT",
-        "output_ps": 181,
-        "torque_nm": 290,
-        "key_features": [
-          "17\" Alloy Wheels",
-          "Lane Departure Warning",
-          "Rear View Camera",
-          "CarPlay/AA"
-        ]
-      },
-      {
-        "code": "prem",
-        "name": "1.5TD Premium",
-        "msrp_price_rm": 101800,
-        "promo_price_rm": 97800,
-        "promo_until": "2025-10-31",
-        "promo_note": "GEMPAK! Deal First 10,000 units or until 2025-10-31",
-        "engine": "1.5TD",
-        "transmission": "7DCT",
-        "output_ps": 181,
-        "torque_nm": 290,
-        "key_features": [
-          "Panoramic Sunroof",
-          "Blind Spot Monitor",
-          "Wireless Charging",
-          "Synthetic Leather Seats"
-        ]
-      },
-      {
-        "code": "flag",
-        "name": "1.5TD Flagship",
-        "msrp_price_rm": 113300,
-        "promo_price_rm": 109300,
-        "promo_until": "2025-10-31",
-        "promo_note": "GEMPAK! Deal First 10,000 units or until 2025-10-31",
-        "engine": "1.5TD",
-        "transmission": "7DCT",
-        "output_ps": 181,
-        "torque_nm": 290,
-        "key_features": [
-          "L2 ADAS Full Suite",
-          "360° Surround View + Underbody View",
-          "Full Speed ACC"
-        ]
+        "name": "Executive",
+        "msrp_price_rm": 89800
       }
     ],
     "specs": {
       "power": "181 PS",
       "torque": "290 Nm"
     },
-    "colors": [
-      "White",
-      "Gray",
-      "Red",
-      "Blue"
-    ],
+    "headerBg": "linear-gradient(180deg, rgba(0,0,0,0.45) 0%, transparent 100%)",
+    "headerTextColor": "#000000",
     "tags": [
       "featured"
     ],
+    "brochureUrl": "https://www.proton.com/models/all-new-x50",
     "sources": [
       {
-        "label": "Proton Official",
-        "url": "https://www.proton.com"
+        "label": "PROTON All-New X50",
+        "url": "https://www.proton.com/models/all-new-x50"
       },
       {
-        "label": "SoyaCincau",
-        "url": "https://soyacincau.com"
-      },
-      {
-        "label": "Paul Tan",
-        "url": "https://paultan.org"
+        "label": "PROTON X50 launch announcement",
+        "url": "https://www.proton.com/happenings/2025/july/the-all-new-proton-x50-is-here-malaysia-s-no1-b-segment-suv-raises-the-bar-once-more"
       }
     ],
-    "updated_at": "2025-08-17",
-    "price_note_url": "/legal/price-note"
+    "updated_at": "2026-03-16"
   },
   {
     "id": "x70",
-    "name": "Proton X70 (2025)",
+    "name": "Proton X70",
     "segment": "SUV",
-    "priceFrom": 98800,
-    "isShowTitle": false,
+    "priceFrom": 106800,
+    "discountPrice": 99800,
+    "year": 2026,
     "highlights": [
-      "1.5 TGDi + 7DCT",
-      "CarPlay / Android Auto (OTA)",
-      "L2 ADAS (High Spec)"
+      "i-GT 1.5TD engine with 181PS and 290Nm",
+      "12.3-inch infotainment with Wireless Apple CarPlay and Android Auto",
+      "Ventilated seats, power tailgate and PROTON Link 2.0"
     ],
     "heroImage": "/images/x70/hero2.jpeg",
     "full_heroImage": "/images/x70/full_hero.jpeg",
@@ -169,48 +66,39 @@
     ],
     "variants": [
       {
-        "name": "1.5 TGDi Standard",
-        "msrp_price_rm": 98800
-      },
-      {
-        "name": "1.5 TGDi Executive",
-        "msrp_price_rm": 110800
-      },
-      {
-        "name": "1.5 TGDi Premium",
-        "msrp_price_rm": 123800
-      },
-      {
-        "name": "1.5 TGDi Premium X",
-        "msrp_price_rm": 126800
+        "name": "Starting From",
+        "msrp_price_rm": 99800
       }
     ],
+    "specs": {
+      "power": "181 PS",
+      "torque": "290 Nm"
+    },
+    "headerBg": "linear-gradient(180deg, rgba(0,0,0,0.45) 0%, transparent 100%)",
+    "headerTextColor": "#000000",
     "tags": [
       "popular"
     ],
+    "brochureUrl": "https://www.proton.com/models/x70",
     "sources": [
       {
-        "label": "Proton Official",
-        "url": "https://www.proton.com"
-      },
-      {
-        "label": "Paul Tan",
-        "url": "https://paultan.org"
+        "label": "PROTON X70",
+        "url": "https://www.proton.com/models/x70"
       }
     ],
-    "updated_at": "2025-08-17",
-    "price_note_url": "/legal/price-note"
+    "updated_at": "2026-03-16"
   },
   {
     "id": "x90",
-    "name": "Proton X90 (BSG)",
+    "name": "Proton X90",
     "segment": "SUV",
-    "priceFrom": 123800,
-    "isShowTitle": false,
+    "priceFrom": 106800,
+    "discountPrice": 99800,
+    "year": 2026,
     "highlights": [
-      "1.5 TGDi + 48V BSG · 7DCT",
-      "6/7 Seat Layout",
-      "Advanced Active Safety & Connectivity"
+      "i-GT 1.5TD engine with 181PS and 290Nm",
+      "Spacious 3-row seating with captain seats option",
+      "12.3-inch infotainment, wireless smartphone connectivity and 360 HD camera"
     ],
     "heroImage": "/images/x90/hero2.jpeg",
     "full_heroImage": "/images/x90/full_hero.jpeg",
@@ -220,47 +108,38 @@
     ],
     "variants": [
       {
-        "name": "1.5 TGDi BSG Standard",
-        "msrp_price_rm": 123800
-      },
-      {
-        "name": "1.5 TGDi BSG Executive",
-        "msrp_price_rm": 130800
-      },
-      {
-        "name": "1.5 TGDi BSG Premium",
-        "msrp_price_rm": 144800
-      },
-      {
-        "name": "1.5 TGDi BSG Flagship",
-        "msrp_price_rm": 152800
+        "name": "Starting From",
+        "msrp_price_rm": 99800
       }
     ],
-    "sources": [
-      {
-        "label": "Proton 官方",
-        "url": "https://www.proton.com"
-      },
-      {
-        "label": "CarBase",
-        "url": "https://www.carbase.my"
-      }
-    ],
-    "updated_at": "2025-08-17",
-    "price_note_url": "/legal/price-note",
+    "specs": {
+      "power": "181 PS",
+      "torque": "290 Nm"
+    },
+    "headerBg": "linear-gradient(180deg, rgba(0,0,0,0.45) 0%, transparent 100%)",
+    "headerTextColor": "#000000",
     "tags": [
       "featured"
-    ]
+    ],
+    "brochureUrl": "https://www.proton.com/models/x90",
+    "sources": [
+      {
+        "label": "PROTON X90",
+        "url": "https://www.proton.com/models/x90"
+      }
+    ],
+    "updated_at": "2026-03-16"
   },
   {
     "id": "s70",
     "name": "Proton S70",
     "segment": "Sedan",
     "priceFrom": 73800,
+    "year": 2026,
     "highlights": [
-      "1.5T 150 PS / 226 Nm + 7DCT",
-      "L2 ADAS (High Spec)",
-      "Remote Start & Connected Car"
+      "i-GT 1.5TD engine with 181PS and 290Nm",
+      "7-Speed Dual Clutch Transmission and Drive Mode Selection",
+      "Remote Engine Start and LED headlamps with DRL"
     ],
     "heroImage": "/images/s70/hero2.jpeg",
     "full_heroImage": "/images/s70/full_hero.jpeg",
@@ -272,34 +151,137 @@
       {
         "name": "Executive",
         "msrp_price_rm": 73800
-      },
-      {
-        "name": "Premium",
-        "msrp_price_rm": 79800
-      },
-      {
-        "name": "Flagship",
-        "msrp_price_rm": 89800
-      },
-      {
-        "name": "Flagship X",
-        "msrp_price_rm": 94800
       }
     ],
-    "sources": [
-      {
-        "label": "Proton Official",
-        "url": "https://www.proton.com"
-      },
-      {
-        "label": "Paul Tan",
-        "url": "https://paultan.org"
-      }
-    ],
-    "updated_at": "2025-08-17",
-    "price_note_url": "/legal/price-note",
+    "specs": {
+      "power": "181 PS",
+      "torque": "290 Nm"
+    },
+    "headerBg": "linear-gradient(180deg, rgba(0,0,0,0.45) 0%, transparent 100%)",
+    "headerTextColor": "#ffffff",
     "tags": [
       "featured"
-    ]
+    ],
+    "brochureUrl": "https://www.proton.com/models/s70",
+    "sources": [
+      {
+        "label": "PROTON S70",
+        "url": "https://www.proton.com/models/s70"
+      }
+    ],
+    "updated_at": "2026-03-16"
+  },
+  {
+    "id": "saga",
+    "name": "All-New Proton Saga",
+    "segment": "Sedan",
+    "priceFrom": 38990,
+    "year": 2025,
+    "highlights": [
+      "All-New i-GT 1.5 engine with 120PS and 150Nm",
+      "16-inch Integrated Dual Screen with wireless Apple CarPlay and Android Auto",
+      "Nine ADAS functions, six airbags and full LED lighting"
+    ],
+    "heroImage": "/images/saga/hero2.jpeg",
+    "full_heroImage": "/images/saga/full_hero.jpeg",
+    "full_heroImage_mob": "/images/saga/full_hero_mob.jpeg",
+    "gallery": [
+      "/images/saga/hero2.jpeg"
+    ],
+    "variants": [
+      {
+        "name": "Standard",
+        "msrp_price_rm": 38990
+      }
+    ],
+    "specs": {
+      "power": "120 PS",
+      "torque": "150 Nm"
+    },
+    "headerBg": "linear-gradient(180deg, rgba(0,0,0,0.45) 0%, transparent 100%)",
+    "headerTextColor": "#000000",
+    "tags": [
+      "featured"
+    ],
+    "brochureUrl": "https://www.proton.com/en/saga/",
+    "sources": [
+      {
+        "label": "PROTON All-New Saga",
+        "url": "https://www.proton.com/en/saga/"
+      },
+      {
+        "label": "PROTON All-New Saga launch announcement",
+        "url": "https://www.proton.com/happenings/2025/november/the-all-new-saga-is-here-malaysia-s-iconic-sedan-drives-nation-into-a-new-era"
+      }
+    ],
+    "updated_at": "2026-03-16"
+  },
+  {
+    "id": "persona",
+    "name": "Proton Persona",
+    "segment": "Sedan",
+    "priceFrom": 47800,
+    "highlights": [
+      "510L boot space for practical daily use",
+      "8-inch floating infotainment with voice command",
+      "Six airbags, ESC, TCS and Hill Hold Assist"
+    ],
+    "heroImage": "/images/persona/hero2.jpeg",
+    "full_heroImage": "/images/persona/full_hero.jpeg",
+    "full_heroImage_mob": "/images/persona/full_hero_mob.jpeg",
+    "gallery": [
+      "/images/persona/hero2.jpeg"
+    ],
+    "variants": [
+      {
+        "name": "Starting From",
+        "msrp_price_rm": 47800
+      }
+    ],
+    "headerBg": "linear-gradient(180deg, rgba(0,0,0,0.45) 0%, transparent 100%)",
+    "headerTextColor": "#000000",
+    "tags": ["featured"],
+    "brochureUrl": "https://www.proton.com/en/models/persona",
+    "sources": [
+      {
+        "label": "PROTON Persona",
+        "url": "https://www.proton.com/en/models/persona"
+      }
+    ],
+    "updated_at": "2026-03-16"
+  },
+  {
+    "id": "iriz",
+    "name": "Proton Iriz",
+    "segment": "Hatchback",
+    "priceFrom": 42800,
+    "highlights": [
+      "Sporty exterior cladding and semi leather seats",
+      "8-inch floating infotainment with voice command",
+      "Six airbags, ESC, TCS and Hill Hold Assist"
+    ],
+    "heroImage": "/images/iriz/hero2.jpeg",
+    "full_heroImage": "/images/iriz/full_hero.jpeg",
+    "full_heroImage_mob": "/images/iriz/full_hero_mob.jpeg",
+    "gallery": [
+      "/images/iriz/hero2.jpeg"
+    ],
+    "variants": [
+      {
+        "name": "Starting From",
+        "msrp_price_rm": 42800
+      }
+    ],
+    "headerBg": "linear-gradient(180deg, rgba(0,0,0,0.45) 0%, transparent 100%)",
+    "headerTextColor": "#000000",
+    "tags": ["featured"],
+    "brochureUrl": "https://www.proton.com/models/iriz",
+    "sources": [
+      {
+        "label": "PROTON Iriz",
+        "url": "https://www.proton.com/models/iriz"
+      }
+    ],
+    "updated_at": "2026-03-16"
   }
 ]

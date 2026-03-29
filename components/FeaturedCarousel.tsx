@@ -13,6 +13,8 @@ type Slide = {
   imageMobile: string;
   thumb?: string;
   brochure?: string;
+  headerBg?: string;
+  headerTextColor?: string;
 };
 
 export default function FeaturedCarousel({
@@ -65,7 +67,9 @@ export default function FeaturedCarousel({
           image: m.full_heroImage,
           imageMobile: m.full_heroImage_mob,
           thumb: m.gallery?.[0] || m.heroImage,
-          brochure: m.brochureUrl || `/docs/${m.id}.pdf`
+          brochure: m.brochureUrl || `/docs/${m.id}.pdf`,
+          headerBg: m.headerBg,
+          headerTextColor: m.headerTextColor,
         })));
       } catch {
         setAutoSlides([]);
@@ -162,10 +166,10 @@ export default function FeaturedCarousel({
         <Image src={isMobile ? s!.imageMobile : s!.image} alt={safeAlt(undefined, s!.title)} fill sizes="100vw" className="object-cover" />
 
         {/* Title / Desc — Desktop: 顶部左；Mobile: 底部左 */}
-        <div className={"absolute left-0 right-0 " + ("top-0")}>
+        <div className={"absolute left-0 right-0 " + ("top-0")} style={s!.headerBg ? { background: s!.headerBg } : undefined}>
           <div className="p-4 sm:p-6 md:p-10">
-            <h3 className={"text-black/90 font-bold drop-shadow " + (isMobile ? "text-3xl" : "text-3xl md:text-5xl")}>{s!.title}</h3>
-            <p className={"text-black/90 max-w-xl mt-2 " + (isMobile ? "text-sm" : "text-base md:text-lg")}>{s!.desc}</p>
+            <h3 className={"font-bold drop-shadow " + (isMobile ? "text-3xl" : "text-3xl md:text-5xl")} style={{ color: s!.headerTextColor || 'rgba(0,0,0,0.9)' }}>{s!.title}</h3>
+            <p className={"max-w-xl mt-2 " + (isMobile ? "text-sm" : "text-base md:text-lg")} style={{ color: s!.headerTextColor || 'rgba(0,0,0,0.9)' }}>{s!.desc}</p>
           </div>
         </div>
 

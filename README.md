@@ -38,12 +38,14 @@
 当前 `models.json` 中实际启用的车型：
 
 - Saga
+- Persona
+- Iriz
 - X50
 - X70
 - X90
 - S70
 
-注意：历史文档里提到的 `e.MAS 7`、`Persona`、`Iriz` 当前并不在现有数据中。
+首页当前重点展示的是带 `featured` / `popular` 标签且已经有本地素材的车型；`Persona` 和 `Iriz` 已加入咨询数据，但暂未加入首页展示区。
 
 ## 技术栈
 
