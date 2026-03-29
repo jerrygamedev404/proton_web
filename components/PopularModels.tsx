@@ -2,9 +2,10 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import AnchorLink from '@/components/AnchorLink';
+import { useRouter } from 'next/navigation';
 import Section from '@/components/Section';
 import { formatPrice } from '@/lib/utils';
+import { scrollToId } from '@/lib/scroll';
 
 type ModelLite = { id: string; name: string; heroImage?: string; priceFrom?: number; discountPrice?: number; };
 
@@ -12,24 +13,32 @@ export default function PopularModels({
   id = 'popular_car',
   title = 'Hot Deal',
   models,
-  detailAnchorId = '#featured',
-  detailHref = '#featured',
   className = 'py-6',
 }: {
   id?: string;
   title?: string;
   models: ModelLite[];
-  detailAnchorId?: string;
-  detailHref?: string;
   className?: string;
 }) {
+  const router = useRouter();
+
+  const goToSlide = (modelId: string) => {
+    const onSamePage = typeof document !== 'undefined' && !!document.getElementById('featured');
+    if (onSamePage) {
+      router.push(`/?slide=${modelId}`, { scroll: false });
+      scrollToId('featured');
+    } else {
+      router.push(`/?slide=${modelId}#featured`);
+    }
+  };
+
   return (
     <Section id={id} className={className}>
       <h2 className="text-2xl font-semibold mb-4">{title}</h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {models.map(m => (
           <div key={m.id} className="card relative overflow-hidden group">
-            <AnchorLink href={detailHref} anchorId={detailAnchorId} className="block focus:outline-none" ariaLabel={`View featured highlights for ${m.name}`}>
+            <button onClick={() => goToSlide(m.id)} className="block w-full focus:outline-none" aria-label={`View featured highlights for ${m.name}`}>
               <div className="relative aspect-[16/10]">
                 {m.heroImage ? (
                   <Image
@@ -43,7 +52,7 @@ export default function PopularModels({
                   <div className="w-full h-full bg-neutral-100" aria-hidden />
                 )}
               </div>
-            </AnchorLink>
+            </button>
             <div className="p-4 flex flex-col gap-3">
               <div className="min-w-0">
                 <div className="font-medium leading-5 truncate">{m.name}</div>
@@ -57,9 +66,13 @@ export default function PopularModels({
                 )}
               </div>
               <div className="flex items-center gap-2 justify-end">
-                <AnchorLink href={detailHref} anchorId={detailAnchorId} className="btn btn-outline px-3 py-1.5 text-xs whitespace-nowrap" ariaLabel={`See detail for ${m.name}`}>
+                <button
+                  onClick={() => goToSlide(m.id)}
+                  className="btn btn-outline px-3 py-1.5 text-xs whitespace-nowrap"
+                  aria-label={`See detail for ${m.name}`}
+                >
                   Detail
-                </AnchorLink>
+                </button>
                 <Link
                   href={`/contact?model=${m.id}`}
                   className="btn btn-primary px-4 py-1.5 text-xs whitespace-nowrap rounded-full"

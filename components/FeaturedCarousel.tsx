@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { fetchAllModels } from '@/lib/data.client';
@@ -20,7 +21,7 @@ type Slide = {
 export default function FeaturedCarousel({
   slides,
   desktopHeightClass = 'md:h-[620px]',
-  mobileHeaderHeight = 56,         // px, your header is h-14
+  mobileHeaderHeight = 56,
   intervalMs = 5000,
   pauseAfterInteractionMs = 8000,
 }: {
@@ -30,9 +31,12 @@ export default function FeaturedCarousel({
   intervalMs?: number;
   pauseAfterInteractionMs?: number;
 }) {
-  // --- Stable hooks ---
   const [autoSlides, setAutoSlides] = useState<Slide[]>([]);
-  const [idx, setIdx] = useState(0);
+  // pos is 1-based into the extended array [last_clone, ...slides, first_clone, second_clone, third_clone]
+  const [pos, setPos] = useState(1);
+  const [transitioning, setTransitioning] = useState(true);
+  const posRef = useRef(1);
+  const searchParams = useSearchParams();
   const [paused, setPaused] = useState(false);
   const [lastInteractAt, setLastInteractAt] = useState<number>(0);
   const [isMobile, setIsMobile] = useState<boolean>(false);
@@ -40,7 +44,7 @@ export default function FeaturedCarousel({
   const timerRef = useRef<number | null>(null);
   const mqRef = useRef<MediaQueryList | null>(null);
 
-  // match media for mobile
+  // Match media for mobile
   useEffect(() => {
     if (typeof window === 'undefined') return;
     mqRef.current = window.matchMedia('(max-width: 640px)');
@@ -67,7 +71,7 @@ export default function FeaturedCarousel({
           image: m.full_heroImage,
           imageMobile: m.full_heroImage_mob,
           thumb: m.gallery?.[0] || m.heroImage,
-          brochure: m.brochureUrl || `/docs/${m.id}.pdf`,
+          brochure: `/docs/${m.id}.pdf`,
           headerBg: m.headerBg,
           headerTextColor: m.headerTextColor,
         })));
@@ -75,19 +79,74 @@ export default function FeaturedCarousel({
         setAutoSlides([]);
       }
     })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slides?.length]);
 
-  // Derived
+  // Derived slides
   const effectiveSlides: Slide[] = (slides?.length ? slides : autoSlides).map(s => ({
     ...s,
-    brochure: s.brochure || `/docs/${s.id}.pdf`
+    brochure: `/docs/${s.id}.pdf`,
   }));
   const count = effectiveSlides.length || 0;
-  const safeIdx = count ? (idx % count + count) % count : 0;
-  const s = count ? effectiveSlides[safeIdx] : undefined;
 
-  // Auto advance
+  // Extended array: [clone_of_last, ...slides, clone_of_first, clone_of_second, clone_of_third]
+  // Extra clones at end cover thumbnail clicks up to +3 positions ahead
+  const extSlides: Slide[] = count >= 1 ? [
+    effectiveSlides[(count - 1) % count],
+    ...effectiveSlides,
+    effectiveSlides[0 % count],
+    effectiveSlides[1 % count],
+    effectiveSlides[2 % count],
+  ] : effectiveSlides;
+  const extCount = extSlides.length; // count + 4
+
+  // Real 0-based index into effectiveSlides
+  const realIdx = count ? ((pos - 1) % count + count) % count : 0;
+  const s = count ? effectiveSlides[realIdx] : undefined;
+
+  const updatePos = (newPos: number) => {
+    posRef.current = newPos;
+    setPos(newPos);
+  };
+
+  // Jump to slide requested via ?slide=modelId URL param
+  useEffect(() => {
+    const slideId = searchParams?.get('slide');
+    if (!slideId || !count) return;
+    const targetIdx = effectiveSlides.findIndex(s => s.id === slideId);
+    if (targetIdx === -1) return;
+    setTransitioning(false);
+    updatePos(targetIdx + 1);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams, count]);
+
+  const prev = () => {
+    if (count > 1) { setTransitioning(true); updatePos(posRef.current - 1); setLastInteractAt(Date.now()); }
+  };
+  const next = () => {
+    if (count > 1) { setTransitioning(true); updatePos(posRef.current + 1); setLastInteractAt(Date.now()); }
+  };
+  // Go forward by `offset` steps (used by thumbnail clicks)
+  const goFwd = (offset: number) => {
+    if (!count || offset === 0) return;
+    setTransitioning(true);
+    updatePos(posRef.current + offset);
+    setLastInteractAt(Date.now());
+  };
+
+  // After sliding into a clone, silently teleport to the real position
+  const onTransitionEnd = () => {
+    const p = posRef.current;
+    if (p <= 0) {
+      setTransitioning(false);
+      updatePos(p + count);
+    } else if (p > count) {
+      setTransitioning(false);
+      updatePos(p - count);
+    }
+  };
+
+  // Auto-advance
   useEffect(() => {
     const prefersReduced = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced || count <= 1) return;
@@ -96,7 +155,8 @@ export default function FeaturedCarousel({
       const invisible = typeof document !== 'undefined' && (document.hidden || document.visibilityState !== 'visible');
       const withinPause = Date.now() - lastInteractAt < pauseAfterInteractionMs;
       if (!paused && !invisible && !withinPause) {
-        setIdx(i => (i + 1) % count);
+        setTransitioning(true);
+        updatePos(posRef.current + 1);
       }
       timerRef.current = window.setTimeout(tick, intervalMs);
     };
@@ -110,7 +170,7 @@ export default function FeaturedCarousel({
       if (timerRef.current) clearTimeout(timerRef.current);
       document.removeEventListener('visibilitychange', onVisibility);
     };
-  }, [count, paused, intervalMs, pauseAfterInteractionMs, lastInteractAt]);
+  }, [count, paused, intervalMs, pauseAfterInteractionMs, lastInteractAt]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Hover pause
   useEffect(() => {
@@ -126,10 +186,6 @@ export default function FeaturedCarousel({
     };
   }, []);
 
-  const prev = () => { if (count > 1) { setIdx(i => (i - 1 + count) % count); setLastInteractAt(Date.now()); } };
-  const next = () => { if (count > 1) { setIdx(i => (i + 1) % count); setLastInteractAt(Date.now()); } };
-  const go = (i: number) => { if (count) { setIdx(i % count); setLastInteractAt(Date.now()); } };
-
   if (!count) {
     return (
       <section className="relative rounded-2xl overflow-hidden bg-slate-200 animate-pulse">
@@ -141,39 +197,60 @@ export default function FeaturedCarousel({
   // ===== Responsive thumbnails =====
   const THUMB_W = isMobile ? 92 : 110;
   const THUMB_H = isMobile ? 124 : 148;
-  const GAP = isMobile ? 10 : 10;
-  const ARROW_OFFSET = isMobile ? `left-4` : `left-10`;
+  const GAP = 10;
   const HALF_W = Math.round(THUMB_W * 0.5);
-  const STRIP_ITEMS = isMobile ? 2.5 : 2.5; // window size
+  const STRIP_ITEMS = 2.5;
   const STRIP_W = (Math.floor(STRIP_ITEMS) * THUMB_W) + (STRIP_ITEMS % 1 ? HALF_W : 0) + (Math.floor(STRIP_ITEMS) - 1 + (STRIP_ITEMS % 1 ? Math.floor(STRIP_ITEMS) : Math.floor(STRIP_ITEMS) - 1)) * GAP;
   const loop = (i: number) => (i % count + count) % count;
   const visible = [
-    effectiveSlides[loop(safeIdx + 0)],
-    effectiveSlides[loop(safeIdx + 1)],
-    effectiveSlides[loop(safeIdx + 2)],
-    ...(STRIP_ITEMS > 3 ? [effectiveSlides[loop(safeIdx + 3)]] : []),
+    effectiveSlides[loop(realIdx + 0)],
+    effectiveSlides[loop(realIdx + 1)],
+    effectiveSlides[loop(realIdx + 2)],
+    ...(STRIP_ITEMS > 3 ? [effectiveSlides[loop(realIdx + 3)]] : []),
   ];
 
-  // Mobile full-height style (from header to bottom, include safe area)
   const mobileHeightStyle = isMobile
     ? { height: `calc(100dvh - ${mobileHeaderHeight}px)` }
     : undefined;
 
-  const containerClassName = (isMobile ? "" : "rounded-2xl ") + "relative overflow-hidden bg-black text-white"
+  const containerClassName = (isMobile ? '' : 'rounded-2xl ') + 'relative overflow-hidden bg-black text-white';
+
   return (
     <section className={containerClassName}>
-      <div ref={containerRef} className={"relative w-full " + (isMobile ? '' : desktopHeightClass)} style={mobileHeightStyle}>
-        <Image src={isMobile ? s!.imageMobile : s!.image} alt={safeAlt(undefined, s!.title)} fill sizes="100vw" className="object-cover" />
+      <div ref={containerRef} className={"relative w-full overflow-hidden " + (isMobile ? '' : desktopHeightClass)} style={mobileHeightStyle}>
 
-        {/* Title / Desc — Desktop: 顶部左；Mobile: 底部左 */}
-        <div className={"absolute left-0 right-0 " + ("top-0")} style={s!.headerBg ? { background: s!.headerBg } : undefined}>
+        {/* Infinite sliding image strip */}
+        <div
+          className="absolute inset-0 flex h-full"
+          style={{
+            width: `${extCount * 100}%`,
+            transform: `translateX(-${pos * (100 / extCount)}%)`,
+            transition: transitioning ? 'transform 0.5s ease-in-out' : 'none',
+          }}
+          onTransitionEnd={onTransitionEnd}
+        >
+          {extSlides.map((slide, i) => (
+            <div key={`${slide.id}-${i}`} className="relative h-full shrink-0" style={{ width: `${100 / extCount}%` }}>
+              <Image
+                src={isMobile ? slide.imageMobile : slide.image}
+                alt={safeAlt(undefined, slide.title)}
+                fill
+                sizes="100vw"
+                className="object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Title / Desc overlay */}
+        <div className="absolute left-0 right-0 top-0" style={s!.headerBg ? { background: s!.headerBg } : undefined}>
           <div className="p-4 sm:p-6 md:p-10">
             <h3 className={"font-bold drop-shadow " + (isMobile ? "text-3xl" : "text-3xl md:text-5xl")} style={{ color: s!.headerTextColor || 'rgba(0,0,0,0.9)' }}>{s!.title}</h3>
             <p className={"max-w-xl mt-2 " + (isMobile ? "text-sm" : "text-base md:text-lg")} style={{ color: s!.headerTextColor || 'rgba(0,0,0,0.9)' }}>{s!.desc}</p>
           </div>
         </div>
 
-        {/* CTA + Arrows（垂直排列，左下角） */}
+        {/* CTA + Arrows (bottom-left) */}
         <div className="absolute left-4 sm:left-6 md:left-10 bottom-6 pb-[env(safe-area-inset-bottom)] flex flex-col items-start gap-3 z-10">
           <Link
             href={s?.brochure ?? '#'}
@@ -206,18 +283,17 @@ export default function FeaturedCarousel({
           )}
         </div>
 
-
-        {/* Thumbnails: fixed width window (3.5 desktop / 2.5 mobile) */}
+        {/* Thumbnails */}
         <div className="absolute bottom-[22px] md:bottom-4 right-4 md:right-6" style={{ width: STRIP_W }}>
           <div className="flex items-center" style={{ gap: GAP, overflow: 'hidden' }} aria-label="Thumbnails">
             {visible.map((it, i) => {
-              const isActive = loop(safeIdx + i) === safeIdx;
+              const isActive = i === 0;
               const isHalf = (isMobile ? (i === 2) : (i === 3));
               const w = isHalf ? HALF_W : THUMB_W;
               return (
                 <button
                   key={`${it.id}-${i}`}
-                  onClick={() => go(loop(safeIdx + i))}
+                  onClick={() => goFwd(i)}
                   aria-label={it.title}
                   className={`relative shrink-0 rounded-2xl overflow-hidden border transition
                     ${isActive ? 'border-white' : 'border-white/30 hover:border-white/70'}`}

@@ -30,9 +30,7 @@ export default function HomePage() {
       <PopularModels
         id="popular_car"
         title="Featured Vehicles"
-        models={popular}             // 你已有的 popular 数组
-        detailAnchorId="featured"
-        detailHref="/#featured"
+        models={popular}
       />
 
       {/* Carousel below Hero */}
