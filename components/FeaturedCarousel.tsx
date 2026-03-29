@@ -22,7 +22,7 @@ export default function FeaturedCarousel({
   slides,
   desktopHeightClass = 'md:h-[620px]',
   mobileHeaderHeight = 56,
-  intervalMs = 5000,
+  intervalMs = 3500,
   pauseAfterInteractionMs = 8000,
 }: {
   slides?: Slide[];
@@ -199,7 +199,7 @@ export default function FeaturedCarousel({
   const THUMB_H = isMobile ? 124 : 148;
   const GAP = 10;
   const HALF_W = Math.round(THUMB_W * 0.5);
-  const STRIP_ITEMS = 2.5;
+  const STRIP_ITEMS = isMobile ? 1.5 : 2.5;
   const STRIP_W = (Math.floor(STRIP_ITEMS) * THUMB_W) + (STRIP_ITEMS % 1 ? HALF_W : 0) + (Math.floor(STRIP_ITEMS) - 1 + (STRIP_ITEMS % 1 ? Math.floor(STRIP_ITEMS) : Math.floor(STRIP_ITEMS) - 1)) * GAP;
   const loop = (i: number) => (i % count + count) % count;
   const visible = [
